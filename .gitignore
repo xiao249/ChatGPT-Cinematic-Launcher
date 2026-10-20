@@ -1,0 +1,32 @@
+# Build products and runtime diagnostics
+/dist/
+/build/
+/logs/
+*.exe
+*.dll
+*.pdb
+*.lnk
+*.log
+*.tmp
+*.bak
+*.user
+*.suo
+.vs/
+.vscode/
+state.json
+.start-result-*.json
+cdp-profile/
+node_modules/
+.env
+.env.*
+# Artwork is generated locally and must not be published
+/assets/*
+!/assets/Splash.xaml
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+*.bmp
+*.mp4
+*.zip

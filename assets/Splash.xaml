@@ -1,0 +1,99 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Width="960" Height="540" AllowsTransparency="False" Background="#080E19" Topmost="True" ShowInTaskbar="False">
+  <Window.Resources>
+    <LinearGradientBrush x:Key="Metal" StartPoint="0,0" EndPoint="0,1">
+      <GradientStop Color="#FFFFFF" Offset="0"/>
+      <GradientStop Color="#AAB4C7" Offset="0.45"/>
+      <GradientStop Color="#E9F0FA" Offset="0.51"/>
+      <GradientStop Color="#8392A9" Offset="1"/>
+    </LinearGradientBrush>
+  </Window.Resources>
+  <Viewbox Stretch="Uniform">
+    <Grid Width="960" Height="540" ClipToBounds="True" Background="#080E19">
+      <Canvas x:Name="Scene" Width="960" Height="540" ClipToBounds="True">
+        <Image x:Name="HeroArtwork" Canvas.Left="-7" Canvas.Top="-4" Width="974" Height="548" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality">
+          <Image.RenderTransform>
+            <TransformGroup>
+              <ScaleTransform x:Name="CameraZoom" CenterX="487" CenterY="274"/>
+              <TranslateTransform x:Name="HeroTransform"/>
+            </TransformGroup>
+          </Image.RenderTransform>
+        </Image>
+        <Canvas x:Name="RainCanvas" Width="960" Height="540" ClipToBounds="True" IsHitTestVisible="False"/>
+        <Rectangle x:Name="AtmosphereLight" Width="960" Height="540" Opacity="0" IsHitTestVisible="False">
+          <Rectangle.Fill>
+            <RadialGradientBrush Center="0.54,0.35" GradientOrigin="0.54,0.35" RadiusX="0.6" RadiusY="0.8">
+              <GradientStop Color="#B0DDF5" Offset="0"/>
+              <GradientStop Color="#003A6F9B" Offset="1"/>
+            </RadialGradientBrush>
+          </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Width="960" Height="540" IsHitTestVisible="False">
+          <Rectangle.Fill>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+              <GradientStop Color="#DD07101E" Offset="0"/>
+              <GradientStop Color="#AF07101E" Offset="0.25"/>
+              <GradientStop Color="#1507101E" Offset="0.47"/>
+              <GradientStop Color="#0007101E" Offset="0.7"/>
+            </LinearGradientBrush>
+          </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Width="960" Height="180" Canvas.Top="360" IsHitTestVisible="False">
+          <Rectangle.Fill><LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#00040B14" Offset="0"/><GradientStop Color="#C0040B14" Offset="1"/></LinearGradientBrush></Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="BlueRim" Width="960" Height="540" Opacity="0" IsHitTestVisible="False">
+          <Rectangle.Fill>
+            <RadialGradientBrush Center="1,0.22" GradientOrigin="1,0.22" RadiusX="0.58" RadiusY="0.9">
+              <GradientStop Color="#52A9ED" Offset="0"/><GradientStop Color="#001E507E" Offset="1"/>
+            </RadialGradientBrush>
+          </Rectangle.Fill>
+        </Rectangle>
+        <Canvas x:Name="WebOverlay" Width="960" Height="540" Opacity="0" IsHitTestVisible="False">
+          <Path Data="M 960,0 L 612,22" Stroke="#BCD8E8" StrokeThickness="0.7" StrokeDashArray="1400 1400"/>
+          <Path Data="M 960,0 L 643,159" Stroke="#BCD8E8" StrokeThickness="0.7" StrokeDashArray="1400 1400"/>
+          <Path Data="M 960,0 L 756,300" Stroke="#BCD8E8" StrokeThickness="0.7" StrokeDashArray="1400 1400"/>
+          <Path Data="M 960,0 L 911,386" Stroke="#BCD8E8" StrokeThickness="0.7" StrokeDashArray="1400 1400"/>
+          <Path Data="M 874,5 Q 878,29 881,40 Q 902,47 909,75 Q 927,78 948,95" Stroke="#BCD8E8" StrokeThickness="0.6" StrokeDashArray="1400 1400"/>
+          <Path Data="M 799,10 Q 806,43 814,73 Q 847,93 865,141 Q 901,156 937,181" Stroke="#BCD8E8" StrokeThickness="0.6" StrokeDashArray="1400 1400"/>
+          <Path Data="M 724,15 Q 736,60 749,106 Q 800,137 821,206 Q 875,224 927,266" Stroke="#BCD8E8" StrokeThickness="0.6" StrokeDashArray="1400 1400"/>
+          <Path Data="M 650,20 Q 666,81 684,139 Q 748,183 777,272 Q 846,297 916,353" Stroke="#BCD8E8" StrokeThickness="0.6" StrokeDashArray="1400 1400"/>
+        </Canvas>
+        <Rectangle x:Name="EnergySweep" Canvas.Left="0" Canvas.Top="-100" Width="240" Height="740" Opacity="0" IsHitTestVisible="False">
+          <Rectangle.RenderTransform><TransformGroup><SkewTransform AngleX="-16"/><TranslateTransform x:Name="SweepTransform" X="-360"/></TransformGroup></Rectangle.RenderTransform>
+          <Rectangle.Fill><LinearGradientBrush StartPoint="0,0" EndPoint="1,0"><GradientStop Color="#005BAAE8" Offset="0"/><GradientStop Color="#7D96CCF1" Offset="0.44"/><GradientStop Color="#D0FFFFFF" Offset="0.5"/><GradientStop Color="#77EF6975" Offset="0.56"/><GradientStop Color="#00EF6975" Offset="1"/></LinearGradientBrush></Rectangle.Fill>
+        </Rectangle>
+        <Canvas x:Name="SparkCanvas" Width="960" Height="540" ClipToBounds="True" IsHitTestVisible="False"/>
+        <Rectangle x:Name="RevealTop" Width="960" Height="18" Fill="#080E19" IsHitTestVisible="False"/>
+        <Rectangle x:Name="RevealBottom" Canvas.Bottom="0" Width="960" Height="18" Fill="#080E19" IsHitTestVisible="False"/>
+        <Canvas>
+          <Canvas.RenderTransform><TranslateTransform x:Name="IntroTransform"/></Canvas.RenderTransform>
+          <Rectangle Canvas.Left="54" Canvas.Top="63" Width="22" Height="2" Fill="#E74951"/>
+          <TextBlock Canvas.Left="87" Canvas.Top="56" Text="COMMUNITY LAUNCHER" FontFamily="Segoe UI" FontSize="9" FontWeight="SemiBold" Foreground="#A1AFBF"/>
+          <TextBlock x:Name="TitleRedEcho" Canvas.Left="49" Canvas.Top="187" Text="CINEMATIC" FontFamily="Bahnschrift, Segoe UI" FontStretch="Condensed" FontSize="53" FontWeight="Bold" FontStyle="Italic" Foreground="#F45866" Opacity="0" IsHitTestVisible="False">
+            <TextBlock.RenderTransform><TranslateTransform x:Name="TitleRedShift"/></TextBlock.RenderTransform>
+          </TextBlock>
+          <TextBlock x:Name="TitleBlueEcho" Canvas.Left="49" Canvas.Top="187" Text="CINEMATIC" FontFamily="Bahnschrift, Segoe UI" FontStretch="Condensed" FontSize="53" FontWeight="Bold" FontStyle="Italic" Foreground="#71C5FA" Opacity="0" IsHitTestVisible="False">
+            <TextBlock.RenderTransform><TranslateTransform x:Name="TitleBlueShift"/></TextBlock.RenderTransform>
+          </TextBlock>
+          <TextBlock Canvas.Left="49" Canvas.Top="187" Text="CINEMATIC" FontFamily="Bahnschrift, Segoe UI" FontStretch="Condensed" FontSize="53" FontWeight="Bold" FontStyle="Italic" Foreground="{StaticResource Metal}"/>
+          <TextBlock Canvas.Left="54" Canvas.Top="255" Text="ChatGPT" FontFamily="Segoe UI" FontSize="31" FontWeight="Light" Foreground="#F0F4FA"/>
+          <Line X1="55" Y1="310" X2="96" Y2="310" Stroke="#EB4654" StrokeThickness="2"/>
+          <TextBlock Canvas.Left="54" Canvas.Top="330" Text="Your next chapter starts here." FontFamily="Segoe UI" FontSize="12" Foreground="#A2B0C4"/>
+        </Canvas>
+        <TextBlock x:Name="StatusText" Canvas.Left="55" Canvas.Top="444" Text="LAUNCHING CHATGPT" FontFamily="Segoe UI" FontSize="9" FontWeight="SemiBold" Foreground="#B6C2D0"/>
+        <Canvas Canvas.Left="55" Canvas.Top="469" Width="287" Height="2" ClipToBounds="True" Background="#3C4C5E">
+          <Rectangle Width="115" Height="2">
+            <Rectangle.RenderTransform><TranslateTransform x:Name="ScanTransform" X="-130"/></Rectangle.RenderTransform>
+            <Rectangle.Fill><LinearGradientBrush StartPoint="0,0" EndPoint="1,0"><GradientStop Color="#00ED4654" Offset="0"/><GradientStop Color="#ED4654" Offset="0.55"/><GradientStop Color="#F7BBC0" Offset="1"/></LinearGradientBrush></Rectangle.Fill>
+          </Rectangle>
+        </Canvas>
+        <TextBlock Canvas.Left="55" Canvas.Top="491" Text="COMMUNITY PROJECT" FontFamily="Segoe UI" FontSize="8" Foreground="#7F8DA0"/>
+        <Rectangle Canvas.Top="538" Width="200" Height="1.2" IsHitTestVisible="False" Opacity="0.75">
+          <Rectangle.RenderTransform><TranslateTransform x:Name="BorderScanTransform" X="-200"/></Rectangle.RenderTransform>
+          <Rectangle.Fill><LinearGradientBrush StartPoint="0,0" EndPoint="1,0"><GradientStop Color="#00E74951" Offset="0"/><GradientStop Color="#E74951" Offset="0.5"/><GradientStop Color="#0096CCF1" Offset="1"/></LinearGradientBrush></Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="SkipButton" Canvas.Right="24" Canvas.Top="22" Content="SKIP  &#x2197;" Cursor="Hand" Foreground="#CFD7E0" Background="Transparent" BorderThickness="0" Padding="12,8" FontSize="10" FocusVisualStyle="{x:Null}"/>
+        <Rectangle Width="959" Height="539" Stroke="#506171" Opacity="0.45" StrokeThickness="1" IsHitTestVisible="False"/>
+      </Canvas>
+    </Grid>
+  </Viewbox>
+</Window>
